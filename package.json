@@ -4,7 +4,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "entorno": "nodemon --env-file .env --watch app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
