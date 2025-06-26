@@ -1,4 +1,4 @@
-import {DataTypes, STRING} from "sequelize"; //contiene los tipos de datos que tiene mi modelo, el string, interger, boolean
+import {DataTypes} from "sequelize"; //contiene los tipos de datos que tiene mi modelo, el string, interger, boolean
 import sequelize from "../config/database"; //Importe la conexión sequelize configurada anteriormente,la que conecta a mi base de datos
 
 const Character = sequelize.define('Character',{
@@ -27,7 +27,8 @@ const Character = sequelize.define('Character',{
     description:{
         type:DataTypes.STRING,
         allowNull:true,//opcional
-    }
+    },
+    
 } );
 
 export default Character;
