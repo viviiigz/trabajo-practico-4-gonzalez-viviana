@@ -30,5 +30,31 @@ export const getCharacterId = async(req,res)=> {
 };
 
 
+//validar 
+//que los datos no sean vacion 
+ export const createCharacters = async(req,res)=> {
+    try{
+        const {name,ki,race,gender,description} = req.body;
+
+        if (!name || ki === undefined || !race || !gender) {
+            return validacionError(res, 'Los campos Nombre, Ki, Race, Gender son obligatorios')
+        }
+//Validar que ki sea un número entero válido, es decir, que el valor no sea un string ni un
+//número con decimales (float). Solo se deben aceptar valores que sean de tipo entero.
+        if (!Number.isInterger(ki) || ki < 0){
+            return validacionError(res, 'Ki debe ser un número entero válido')
+        }
+//Validar que el campo gender solo acepte los valores "Male" o "Female". Cualquier otro
+//valor debe considerarse inválido y debe generar un mensaje de error.
+       if (!['Male', 'Female'].includes(gender)){
+        return validacionError(res, 'Género debe ser "Male" o "Female"');
+       }
+
+ //asegurarase que description sea una cadena si se incluye
+ if(description !== undefined && typeof description !== 'string'){
+    return validacionError(res, 'La descripción debe ser una cadena si se proporciona.')
+ }   
+    }
+ };
 
 
