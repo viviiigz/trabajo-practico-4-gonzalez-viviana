@@ -96,6 +96,21 @@ export const updateCharacter = async (req,res)=> {
     res.status(500).json({ error: 'Error interno del servidor al actualizar el personaje.' });
     };
 };
+// DELETE personaje
+export const deleteCharacter = async (req, res) => {
+  try {
+    const { id } = req.params;
+    //el personaje con el ID requerido exista 
+    const character = await Character.findByPk(id);
+    if (!character) {
+      return res.status(404).json({ error: 'Personaje no encontrado.' });
+    }
+    await character.destroy();
+    res.status(204).send(); 
+  } catch (error) {
+    res.status(500).json({ error: 'Error interno del servidor al eliminar el personaje.' });
+  }
+};
 
 
 
