@@ -1,9 +1,9 @@
 import {DataTypes} from "sequelize"; //contiene los tipos de datos que tiene mi modelo, el string, interger, boolean
-import sequelize from "../config/database"; //Importe la conexión sequelize configurada anteriormente,la que conecta a mi base de datos
+import sequelize from "../config/database.js"; //Importe la conexión sequelize configurada anteriormente,la que conecta a mi base de datos
 
 const Character = sequelize.define('Character',{
     id:{
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
@@ -13,7 +13,7 @@ const Character = sequelize.define('Character',{
         unique:true, //nombre unico
     },
     ki:{
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         allowNull:false,//OBLIGATOrios
     },
     race:{

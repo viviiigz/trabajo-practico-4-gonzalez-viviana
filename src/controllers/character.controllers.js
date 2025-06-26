@@ -1,5 +1,5 @@
 //validaciones
-import Character from "../models/character.model";
+import Character from "../models/character.model.js";
 
 //funcion para enviar errores de validoacion
 const validacionError= async(req,res) =>{
